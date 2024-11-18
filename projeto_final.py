@@ -31,9 +31,15 @@ st.title('Dashboard de Deputados por Estado e Gênero')
 #Selectbox para filtrar por gênero
 genero = st.selectbox('Selecione o Gênero', ['Todos', 'Mulheres', 'Homens'])
 
+# Selectbox para filtrar por UF (estado)
+uf = st.selectbox('Selecione a UF (Estado)', ['Todos'] + df_todos['siglaUf'].unique().tolist())
+
 # Filtrar os dados de acordo com a seleção
 if genero != 'Todos':
     df_todos = df_todos[df_todos['siglaSexo'] == gênero]
+
+if uf != 'Todos':
+    df_todos = df_todos[df_todos['siglaUf'] == uf]
 
 #Contar o número de deputados por estado e gênero
 contagem_estados = df_todos.groupby(['siglaUf', 'siglaSexo']).size().unstack(fill_value=0)
