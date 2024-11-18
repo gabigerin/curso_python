@@ -45,7 +45,7 @@ if 'Todos' not in ufs_selecionadas:
     df_filtrado = df_filtrado[df_filtrado['siglaUf'].isin(ufs_selecionadas)]
 
 #Contar o número de deputados por estado e gênero
-contagem_estados = df_filtrado.groupby(['siglaUf', 'siglaSexo']).size().unstack(fill_value=0)
+contagem_estados = df_filtrado.groupby(['siglaUf']).size().unstack(fill_value=0)
 
 #Criar DataFrame consolidado para análise
 df_estados = contagem_estados.rename(columns={'F': 'Mulheres', 'M': 'Homens'})
