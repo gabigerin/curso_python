@@ -1,18 +1,25 @@
 import streamlit as st
 st.write("Sou servidora pública")
 
+import streamlit as st
 import requests as req
+import pandas as pd
+import matplotlib.pyplot as plt
+
+#Obter os dados
 url = 'https://dadosabertos.camara.leg.br/api/v2/deputados?ordem=ASC&ordenarPor=nome'
 response = req.get(url)
 dados = response.json()
 
-import pandas as pd
+#Criar DataFrame
 df_camara = pd.DataFrame(dados['dados'])
 
+#Criar o gráfico
 fig, ax = plt.subplots()
 df_camara['siglaPartido'].value_counts().plot(kind='bar', ax=ax)
 ax.set_title('Número de Deputados por Partido')
 
+#Mostrar o gráfico no Streamlit
 st.pyplot(fig)
 
 import pandas as pd
