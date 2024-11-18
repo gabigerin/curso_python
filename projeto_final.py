@@ -35,7 +35,7 @@ df_estados = contagem_estados.rename(columns={'F': 'Mulheres', 'M': 'Homens'})
 #Gráfico de barras usando Matplotlib
 fig, ax = plt.subplots(figsize=(12, 8))
 
-df_estados.plot(kind='bar', ax=ax, color=['dark orchid', 'lime green'], edgecolor='none', alpha=0.85)
+df_estados.plot(kind='bar', ax=ax, color=['darkorchid', 'limegreen'], edgecolor='none', alpha=0.85)
 ax.set_title('Número de Deputados por Estado e Gênero', fontsize=18, fontweight='bold', color='#333333')
 ax.set_xlabel('Estado', fontsize=14, labelpad=10, fontweight='bold', color='#333333')
 ax.set_ylabel('Número de Deputados', fontsize=14, labelpad=10, fontweight='bold', color='#333333')
