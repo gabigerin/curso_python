@@ -1,6 +1,21 @@
 import streamlit as st
 st.write("Sou servidora pública")
 
+import requests as req
+url = 'https://dadosabertos.camara.leg.br/api/v2/deputados?ordem=ASC&ordenarPor=nome'
+response = req.get(url)
+dados = response.json()
+
+import pandas as pd
+df_camara = pd.DataFrame(dados['dados'])
+
+import matplotlib.pyplot as plt
+
+df_camara['siglaPartido'].value_counts().plot(kind='bar')
+plt.show()
+
+
+
 import pandas as pd
 
 df = pd.DataFrame({
@@ -58,16 +73,4 @@ st.write(df.head(numero))
 st.metric('# Municípios', len(df['NM_MUNIC'].unique()))
 st.metric('# Comunidades', len(df['NM_AGLOM'].unique()))
 
-import requests as req
-url = 'https://dadosabertos.camara.leg.br/api/v2/deputados?ordem=ASC&ordenarPor=nome'
-response = req.get(url)
-dados = response.json()
-
-import pandas as pd
-df_camara = pd.DataFrame(dados['dados'])
-
-import matplotlib.pyplot as plt
-
-df_camara['siglaPartido'].value_counts().plot(kind='bar')
-plt.show()
 
