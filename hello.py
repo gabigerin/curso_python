@@ -18,3 +18,7 @@ st.write('Você selecionou: ', opcao)
 
 dadosFiltrados = df[df['nomeServidor'] == opcao]
 st.write(dadosFiltrados)
+
+
+st.title('Localização das comunidades quilombolas (2022)')
+df = pd.read_csv('https://raw.githubusercontent.com/adrianalite/datasets/main/BR_LQs_CD2022.csv')
