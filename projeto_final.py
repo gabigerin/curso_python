@@ -34,21 +34,24 @@ genero = st.selectbox('Selecione o Gênero', ['Todos', 'Mulheres', 'Homens'])
 # Multiselect para filtrar por múltiplas UFs (estados)
 ufs_selecionadas = st.multiselect('Selecione as UFs (Estados)', ['Todos'] + df_todos['siglaUf'].unique().tolist(), default=['Todos'])
 
+# Criar uma cópia do DataFrame original para evitar a modificação direta de df_todos
+df_filtrado = df_todos.copy()
+
 # Filtrar os dados de acordo com a seleção
 if genero != 'Todos':
-    df_todos = df_todos[df_todos['siglaSexo'] == genero]
+    df_filtrado = df_filtrado[df_filtrado['siglaSexo'] == genero]
 
 if 'Todos' not in ufs_selecionadas:
-    df_todos = df_todos[df_todos['siglaUf'].isin(ufs_selecionadas)]
+    df_filtrado = df_filtrado[df_filtrado['siglaUf'].isin(ufs_selecionadas)]
 
 #Contar o número de deputados por estado e gênero
-contagem_estados = df_todos.groupby(['siglaUf', 'siglaSexo']).size().unstack(fill_value=0)
+contagem_estados = df_filtrado.groupby(['siglaUf', 'siglaSexo']).size().unstack(fill_value=0)
 
 #Criar DataFrame consolidado para análise
 df_estados = contagem_estados.rename(columns={'F': 'Mulheres', 'M': 'Homens'})
 
 # Calcular total de deputados
-total_deputados = df_todos.shape[0]
+total_deputados = df_filtrado.shape[0]
 
 # Calcular porcentagens de homens e mulheres
 porcentagem_mulheres = (contagem_estados['F'].sum() / total_deputados) * 100 if total_deputados > 0 else 0
