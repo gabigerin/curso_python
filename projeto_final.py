@@ -62,6 +62,10 @@ st.write(f'Total de Deputados Filtrados: {total_deputados}')
 st.write(f'Porcentagem de Mulheres: {porcentagem_mulheres:.2f}%')
 st.write(f'Porcentagem de Homens: {porcentagem_homens:.2f}%')
 
+# Verificar se df_estados contém dados numéricos
+if df_estados.isnull().values.any():
+    st.error("Os dados para o gráfico estão ausentes ou mal formatados. Verifique os dados.")
+
 #Gráfico de barras usando Matplotlib
 fig, ax = plt.subplots(figsize=(12, 8))
 
