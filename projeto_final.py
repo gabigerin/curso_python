@@ -84,14 +84,14 @@ else:
     # Mostrar o gráfico no Streamlit
     st.pyplot(fig)
 
-# Criar o slider para selecionar o número de linhas a serem exibidas
-numero = st.slider('Selecione o número de linhas a serem exibidas', min_value=0, max_value=len(df_todos))
+    # Criar o slider para selecionar o número de linhas a serem exibidas
+    numero = st.slider('Selecione o número de linhas a serem exibidas', min_value=0, max_value=len(df_todos))
 
-# Exibir as colunas disponíveis para seleção
-colunas_disponiveis = df_todos.columns.tolist()
+    # Exibir as colunas disponíveis para seleção
+    colunas_disponiveis = df_todos.columns.tolist()
 
-# Criar um multi-select para o usuário escolher as colunas
-colunas_selecionadas = st.multiselect('Selecione as colunas a exibir', colunas_disponiveis, default=colunas_disponiveis)
+    # Criar um multi-select para o usuário escolher as colunas
+    colunas_selecionadas = st.multiselect('Selecione as colunas a exibir', colunas_disponiveis, default=colunas_disponiveis)
 
-# Exibir as primeiras 'numero' linhas das colunas selecionadas
-st.write(df_todos[colunas_selecionadas].head(numero))
+    # Exibir as primeiras 'numero' linhas das colunas selecionadas
+    st.write(df_todos[colunas_selecionadas].head(numero))
