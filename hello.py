@@ -22,3 +22,6 @@ st.write(dadosFiltrados)
 
 st.title('Localização das comunidades quilombolas (2022)')
 df = pd.read_csv('https://raw.githubusercontent.com/adrianalite/datasets/main/BR_LQs_CD2022.csv')
+
+numero = st.slider('Selecione um número', min_value = 0, max_value = 100)
+st.text("Seu número é " + str(numero))
