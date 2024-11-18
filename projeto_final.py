@@ -83,3 +83,9 @@ else:
 
     # Mostrar o gráfico no Streamlit
     st.pyplot(fig)
+
+    # Criar o slider para selecionar o número de linhas a serem exibidas
+    numero = st.slider('Selecione o número de linhas a serem exibidas', min_value=0, max_value=len(df_todos))
+
+    # Exibir as primeiras 'numero' linhas do DataFrame df_todos
+    st.write(df_todos.head(numero))
