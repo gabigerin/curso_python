@@ -47,5 +47,11 @@ ax.spines['top'].set_visible(False)
 ax.spines['right'].set_visible(False)
 plt.xticks(rotation=45)
 
+#Adicionar números em cima das barras
+for p in bars.patches:
+    height = p.get_height()  # Obtém a altura de cada barra (valor da barra)
+    ax.text(p.get_x() + p.get_width() / 2, height + 0.1, str(int(height)), ha='center', fontsize=12, color='black')
+
+
 #Mostrar o gráfico no Streamlit
 st.pyplot(fig)
