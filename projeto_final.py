@@ -39,7 +39,7 @@ df_estados.plot(kind='bar', ax=ax, color=['blueviolet', 'aqua'], edgecolor='grey
 ax.set_title('Número de Deputados por Estado e Gênero', fontsize=18, fontweight='bold', color='#333333')
 ax.set_xlabel('Estado', fontsize=14, labelpad=10, fontweight='bold', color='#333333')
 ax.set_ylabel('Número de Deputados', fontsize=14, labelpad=10, fontweight='bold', color='#333333')
-ax.legend(title='Gênero', fontsize=12, title_fontsize=14, loc='upper right', frameon=True, shadow=True, facecolor='white', loc='best')
+ax.legend(title='Gênero', fontsize=12, title_fontsize=14, loc='best', frameon=True, shadow=True, facecolor='white')
 ax.set_xticklabels(ax.get_xticklabels(), rotation=45, fontsize=12, ha='right')
 ax.grid(axis='y', linestyle='--', alpha=0.7)
 ax.set_axisbelow(True)
