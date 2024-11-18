@@ -36,7 +36,7 @@ ufs_selecionadas = st.multiselect('Selecione as UFs (Estados)', ['Todos'] + df_t
 
 # Filtrar os dados de acordo com a seleção
 if genero != 'Todos':
-    df_todos = df_todos[df_todos['siglaSexo'] == gênero]
+    df_todos = df_todos[df_todos['siglaSexo'] == genero]
 
 if 'Todos' not in ufs_selecionadas:
     df_todos = df_todos[df_todos['siglaUf'].isin(ufs_selecionadas)]
