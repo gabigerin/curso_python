@@ -14,6 +14,12 @@ st.caption("Esta é a a legenda")
 st.code("x=2021")
 st.latex(r''' a+a r^1+a r^2+a r^3 ''')
 
+#mensagens de status
+st.success("Você conseguiu!")
+st.error("Você errou!")
+st.warning("Cuidado!")
+st.info("Informações!")
+
 #Obter os dados
 url = 'https://dadosabertos.camara.leg.br/api/v2/deputados?ordem=ASC&ordenarPor=nome'
 response = req.get(url)
