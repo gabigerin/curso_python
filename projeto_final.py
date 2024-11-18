@@ -37,7 +37,7 @@ ufs_selecionadas = st.multiselect('Selecione as UFs (Estados)', ['Todos'] + df_t
 # Criar uma cópia do DataFrame original para evitar a modificação direta de df_todos
 df_filtrado = df_todos.copy()
 
-# Filtrar os dados de acordo com a seleção
+#Aplicar filtros de gênero e UF
 if genero != 'Todos':
     df_filtrado = df_filtrado[df_filtrado['siglaSexo'] == genero]
 
