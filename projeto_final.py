@@ -47,6 +47,18 @@ contagem_estados = df_todos.groupby(['siglaUf', 'siglaSexo']).size().unstack(fil
 #Criar DataFrame consolidado para análise
 df_estados = contagem_estados.rename(columns={'F': 'Mulheres', 'M': 'Homens'})
 
+# Calcular total de deputados
+total_deputados = df_todos.shape[0]
+
+# Calcular porcentagens de homens e mulheres
+porcentagem_mulheres = (contagem_estados['F'].sum() / total_deputados) * 100 if total_deputados > 0 else 0
+porcentagem_homens = (contagem_estados['M'].sum() / total_deputados) * 100 if total_deputados > 0 else 0
+
+# Exibir informações no Streamlit
+st.write(f'Total de Deputados Filtrados: {total_deputados}')
+st.write(f'Porcentagem de Mulheres: {porcentagem_mulheres:.2f}%')
+st.write(f'Porcentagem de Homens: {porcentagem_homens:.2f}%')
+
 #Gráfico de barras usando Matplotlib
 fig, ax = plt.subplots(figsize=(12, 8))
 
