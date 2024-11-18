@@ -9,12 +9,11 @@ dados = response.json()
 import pandas as pd
 df_camara = pd.DataFrame(dados['dados'])
 
-import matplotlib.pyplot as plt
+fig, ax = plt.subplots()
+df_camara['siglaPartido'].value_counts().plot(kind='bar', ax=ax)
+ax.set_title('Número de Deputados por Partido')
 
-df_camara['siglaPartido'].value_counts().plot(kind='bar')
-plt.show()
-
-
+st.pyplot(fig)
 
 import pandas as pd
 
