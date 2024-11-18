@@ -39,3 +39,9 @@ dadosFiltrados = df[df['NM_UF'] == estadoFiltro]
 if st.checkbox('Mostrar tabela'):
   st.write(dadosFiltrados)
 st.map(dadosFiltrados, latitude="Lat_d", longitude="Long_d")
+
+qtdeMunicipios = len(df['NM_MUNIC'].unique())
+st.write("A quantidade de municípios com localização quilombola é " + str(qtdeMunicipios))
+
+qtdeComunidades = len(df['NM_AGLOM'].unique())
+st.write("A quantidade de comunidades quilombolas é " + str(qtdeComunidades))
