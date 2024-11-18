@@ -36,9 +36,12 @@ df_filtrado = df_todos.copy()
 
 # Aplicar filtro de gênero
 if genero:
-    if 'Mulheres' in genero:
+    if 'Mulheres' in genero and 'Homens' in genero:
+        # Quando ambos são selecionados, não altera df_filtrado (incluir todos)
+        pass
+    elif 'Mulheres' in genero:
         df_filtrado = df_filtrado[df_filtrado['siglaSexo'] == 'F']
-    if 'Homens' in genero:
+    elif 'Homens' in genero:
         df_filtrado = df_filtrado[df_filtrado['siglaSexo'] == 'M']
 
 # Contar o número de deputados por estado
